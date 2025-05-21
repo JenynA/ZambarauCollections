@@ -1,0 +1,43 @@
+{% schema %}
+{
+  "name": "Zambarau Home",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Zambarau Homepage"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="hero" style="background: #f5f0fa; padding: 60px 20px; text-align: center;">
+  <h1 style="font-size: 36px; color: #5E3D8E;">Elegance, Rooted in Heritage</h1>
+  <p style="font-size: 18px;">Premium bags, coats, and kimonos inspired by African grace and global sophistication.</p>
+  <a href="/collections/all" class="cta-button" style="display: inline-block; background: #5E3D8E; color: white; padding: 15px 30px; margin-top: 20px; border-radius: 5px; text-decoration: none;">Shop the Collection</a>
+</section>
+
+<section style="padding: 40px 20px; text-align: center;">
+  <h2>Featured Products</h2>
+  <div class="product-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
+    {% for product in collections['frontpage'].products %}
+      <div class="product-card" style="width: 220px; border: 1px solid #eee; border-radius: 10px; padding: 15px; background: white;">
+        <a href="{{ product.url }}" style="text-decoration: none; color: inherit;">
+          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" style="width: 100%; border-radius: 5px;" />
+          <h3 style="margin: 10px 0;">{{ product.title }}</h3>
+          <p>{{ product.price | money }}</p>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section style="padding: 40px 20px; text-align: center;" id="about">
+  <h2>About Zambarau</h2>
+  <p>Zambarau Collections is a Kenyan-born fashion brand celebrating elegant craftsmanship, cultural pride, and modern luxury. Our pieces are designed to empower the working woman and elevate everyday style.</p>
+</section>
+
+<section style="padding: 40px 20px; text-align: center;" id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: <a href="mailto:zambaraucollections@gmail.com">zambaraucollections@gmail.com</a></p>
+  <p>Follow us on Instagram: @zambarau.collections</p>
+</section>
